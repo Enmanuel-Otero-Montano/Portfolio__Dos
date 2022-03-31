@@ -2,7 +2,9 @@
     --text-color: hsl(243, 74%, 7%);
     --letter-spacing: .9px;
     --bg-header-color: hsl(29, 41%, 80%);
-    --bg-resource-color: hsl(37, 79%, 75%);   
+    --bg-resource-color: hsl(37, 79%, 75%);
+    --bg-linear-gradient-one: hsl(37, 79%, 75%);
+    --bg-linear-gradient-two: hsl(43, 82%, 94%); 
 }
 
 * {
@@ -47,7 +49,7 @@ body {
     font-family: 'Arvo', serif;
     font-size: 16px;
     letter-spacing: var(--letter-spacing);
-    background-color: hsl(30, 51%, 92%);
+    background-color: hsl(30, 51%, 93%);
     transition-property: background-color;
     transition-duration: 700ms;
 }
@@ -56,7 +58,9 @@ body.dark {
     background-color: hsl(243, 74%, 7%);
     --text-color : hsl(0, 0%, 100%);
     --bg-header-color: hsl(243, 100%, 64%);
-    --bg-resource-color: hsl(203, 39%, 44%);
+    --bg-resource-color: hsl(203, 39%, 34%);
+    --bg-linear-gradient-one: hsl(243, 100%, 64%);
+    --bg-linear-gradient-two: hsl(203, 39%, 34%);
     transition-property: background-color;
     transition-duration: 700ms;
 }
@@ -290,12 +294,6 @@ img {
     max-width: 100%;
 }
 
-.container-presentation-image {
-    width: 94%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .project-links-container {
     display: flex;
     align-items: center;
@@ -306,5 +304,99 @@ img {
 
 .project-links {
     padding: 10px;
-    background-color: #ffcdb2;
+    background: linear-gradient(0.37turn, var(--bg-linear-gradient-one), var(--bg-linear-gradient-two), var(--bg-linear-gradient-one));
+    box-shadow: 0px 0px 8px hsl(243, 74%, 7%);
+}
+
+/* Estilos para la section "knowledge" */
+
+.section-knowledge__images-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.section-knowledge__images-subcontainer {
+    position: relative;
+    width: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-self: center;
+    overflow: hidden;
+}
+
+.knowledge-image {
+    width: 85px;
+}
+
+.coming-soon {
+    transform: translateX(-85px);
+    top: 0;
+    /* animation-name: coming;
+    animation-duration: 1.9s;
+    animation-iteration-count: infinite; */
+}
+
+.coming-soon-showing {
+    transform: translateX(0);
+    transition-property: transform;
+    transition-duration: 1500ms;
+}
+
+/* @keyframes coming {
+    0% {
+        transform: translateX(-85px);
+    }
+    10% {
+        transform: translateX(-76.7px);
+    }
+    20% {
+        transform: translateX(-68px);
+    }
+    30% {
+        transform: translateX(-59.5px);
+    }
+    40% {
+        transform: translateX(-51px);
+    }
+    50% {
+        transform: translateX(-42.5px);
+    }
+    60% {
+        transform: translateX(-34px);
+    }
+    70% {
+        transform: translateX(-25.5px);
+    }
+    80% {
+        transform: translateX(-17px);
+    }
+    90% {
+        transform: translateX(-8.5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+} */
+
+.overlay-coming-soon-showing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85px;
+    height: 85px;
+    background-color: hsla(23, 39%, 44%, .4);
+}
+
+.overlay-coming-soon-hidden {
+    display: none;
+}
+
+.overlay-coming-soon-showing > p {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 12px;
+    background-color: bisque;
 }

@@ -10,6 +10,7 @@ const body = document.querySelector("body")
 const overlay = document.querySelector(".body-overlay")
 const heroName = document.querySelector(".hero__name-hidden")
 const navLinks = document.querySelectorAll(".nav-links")
+const comingSoon = document.querySelectorAll(".coming-soon")
 
 menu.addEventListener("click", ()=> {
     hamburger[0].classList.toggle("top")
@@ -63,6 +64,10 @@ document.addEventListener("DOMContentLoaded", ()=> {
     }, 1100)
 })
 
+setInterval(() => {
+    comingSoonAnimation()
+}, 2500);
+
 //Funcion que interviene en el proceso de cambio de tamaño de la letra musical
 const re = ()=> {
     musicalLyrics.classList.remove("musical-lyrics-active")
@@ -72,3 +77,12 @@ const showHeroName = ()=> {
     heroName.classList.remove("hero__name-hidden")
     heroName.classList.add("hero__name")
 }
+
+const comingSoonAnimation = ()=> {
+    for(const early of comingSoon) {
+        early.classList.toggle("coming-soon-showing")
+        early.nextElementSibling.classList.toggle("overlay-coming-soon-hidden")
+    }
+}
+
+console.dir(comingSoon[0].parentElement)
