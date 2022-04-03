@@ -1,8 +1,8 @@
 const menu = document.getElementById("menu")
 const hamburger = document.querySelectorAll(".hamburger-menu")
 const nav = document.querySelector(".nav")
-const onOff = document.querySelector(".on-off")
-const musicalLyrics = document.querySelector(".musical-lyrics")
+/* const onOff = document.querySelector(".on-off")
+const musicalLyrics = document.querySelector(".musical-lyrics") */
 const inputSun = document.querySelector(".sun")
 const inputMoon = document.querySelector(".moon")
 const switchMode = document.querySelector(".switch")
@@ -11,6 +11,8 @@ const overlay = document.querySelector(".body-overlay")
 const heroName = document.querySelector(".hero__name-hidden")
 const navLinks = document.querySelectorAll(".nav-links")
 const comingSoon = document.querySelectorAll(".coming-soon")
+const navContactLogo = document.querySelectorAll(".nav-contact-logo")
+
 
 menu.addEventListener("click", ()=> {
     hamburger[0].classList.toggle("top")
@@ -18,9 +20,13 @@ menu.addEventListener("click", ()=> {
     hamburger[2].classList.toggle("botton")
     nav.classList.toggle("nav-hidden")
     overlay.classList.toggle("body-overlay-show")
+    setTimeout(() => {
+        showNavLogo()
+    }, 1150);
+    
 })
 
-onOff.addEventListener("click", ()=> {
+/* onOff.addEventListener("click", ()=> {
     if(onOff.textContent == "off") {
         onOff.textContent = "on"
         musicalLyrics.classList.add("musical-lyrics-active")//Transicion a la letra musical
@@ -30,7 +36,7 @@ onOff.addEventListener("click", ()=> {
     }else{
         onOff.textContent = "off"
     }
-})
+}) */
 
 inputMoon.addEventListener("click", ()=> {
     if(inputMoon.checked == true)
@@ -61,16 +67,23 @@ for(const navLink of navLinks) {
 document.addEventListener("DOMContentLoaded", ()=> {
     setTimeout(()=> {
         showHeroName()
-    }, 1100)
+    }, 900)
 })
+
+/* Functions */
 
 setInterval(() => {
     comingSoonAnimation()
 }, 2500);
 
 //Funcion que interviene en el proceso de cambio de tamaño de la letra musical
-const re = ()=> {
+/* const re = ()=> {
     musicalLyrics.classList.remove("musical-lyrics-active")
+} */
+
+const showNavLogo = ()=> {
+    navContactLogo[0].classList.toggle("nav-contact-logo-show")
+    navContactLogo[1].classList.toggle("nav-contact-logo-show")
 }
 
 const showHeroName = ()=> {
@@ -85,4 +98,3 @@ const comingSoonAnimation = ()=> {
     }
 }
 
-console.dir(comingSoon[0].parentElement)

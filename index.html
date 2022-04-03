@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Portfolio | Enmanuel">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://enmanuel-otero-montano.github.io/Portfolio__Dos/">
+    <meta property="og:description" content="Este es mi Porftolio. Aquí encontrará proyectos que he realizados e información acerca de mí">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap" rel="stylesheet">
@@ -12,7 +16,7 @@
     <title>Portfolio | Enmanuel</title>
 </head>
 <body>
-    <header class="header">
+    <header id="header" class="header">
         <div id="menu" class="header__menu-container" role="button">
             <div class="hamburger-menu"></div>
             <div class="hamburger-menu"></div>
@@ -25,12 +29,16 @@
                 <li><a href="#knowledge" class="nav-links">Conocimientos</a></li>
                 <li><a href="#contact-me" class="nav-links">Contáctame</a></li>
             </ul>
+            <div class="nav-contact">
+                <a href="mailto:oteromontanoenmanuel@gmail.com" target="_blanck"><img src="assets/images/gmail.svg" alt="imagen de logo de gmail" class="nav-contact-logo"></a>
+                <a href="https://api.whatsapp.com/send?phone=+59893304423" target="_blanck"><img src="assets/images/whatsapp-black.svg" alt="imagen de logo de whatsapp" class="nav-contact-logo"></a>
+            </div>
         </nav>
         <div class="body-overlay"></div>
-        <div class="header__music-container">
+        <!-- <div class="header__music-container">
             <svg class="musical-lyrics" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M511.1 367.1c0 44.18-42.98 80-95.1 80s-95.1-35.82-95.1-79.1c0-44.18 42.98-79.1 95.1-79.1c11.28 0 21.95 1.92 32.01 4.898V148.1L192 224l-.0023 208.1C191.1 476.2 149 512 95.1 512S0 476.2 0 432c0-44.18 42.98-79.1 95.1-79.1c11.28 0 21.95 1.92 32 4.898V126.5c0-12.97 10.06-26.63 22.41-30.52l319.1-94.49C472.1 .6615 477.3 0 480 0c17.66 0 31.97 14.34 32 31.99L511.1 367.1z"/></svg>
             <p class="on-off">off</p>
-        </div>
+        </div> -->
         <div class="header__mode-container">
             <div class="switch">
                 <input type="radio" class="input-radio sun" name="input-radio"hidden >
@@ -39,8 +47,20 @@
         </div>
     </header>
     <main class="main">
-        <section class="section-hero">
+        <section id="section-hero" class="section-hero">
             <h1 class="hero text-color">¡Hola! Soy <span class="hero__name-hidden">Enmnauel</span> y este es mi PORTFOLIO</h1>
+            <div class="arrow-container">
+                <svg class="arrow-down-one" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129">
+                    <g>
+                        <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"/>
+                    </g>
+                </svg>
+                <svg class="arrow-down-two" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129">
+                    <g>
+                        <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"/>
+                    </g>
+                </svg>
+            </div>
         </section>
         <section class="section-about-me">
             <h2 id="about-me" class="aligned text-color">Sobre mí</h2>
@@ -91,6 +111,24 @@
             </div>
         </section>
     </main>
+    <footer class="footer">
+        <div class="left-container">
+            <h4 class="footer__name">Enmanuel Otero Montano</h4>
+            <p class="footer__location">Montevideo, Uruguay</p>
+            <ul class="footer__list-socials">
+                <li><a href="mailto:oteromontanoenmanuel@gmail.com" target="_blanck"><img src="assets/images/gmail.svg" alt="imagen de logo de gmail" class="ways-of-contact"></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=+59893304423" target="_blanck"><img src="assets/images/whatsapp-black.svg" alt="imagen de logo de whatsapp" class="ways-of-contact"></a></li>
+                <li><a href="https://www.linkedin.com/in/enmanuel-otero-montano-1a001618b/" target="_blanck"><img src="assets/images/linkedin.svg" alt="imagen de logo de linkedin" class="ways-of-contact"></a></li>
+                <li><a href="https://twitter.com/Enmanue78366929" target="_blanck"><img src="assets/images/twitter.svg" alt="imagen de logo de twitter" class="ways-of-contact"></a></li>
+            </ul>
+        </div>
+        <div class="right-container">
+            <a href="#header">Inicio</a>
+            <a href="#about-me">Sobre mí</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#">Conocimientos</a>
+        </div>
+    </footer>
     <script src="js/main.js"></script>
 </body>
 </html>
