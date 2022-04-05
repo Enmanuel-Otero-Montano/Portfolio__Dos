@@ -8,10 +8,11 @@ const inputMoon = document.querySelector(".moon")
 const switchMode = document.querySelector(".switch")
 const body = document.querySelector("body")
 const overlay = document.querySelector(".body-overlay")
-const heroName = document.querySelector(".hero__name-hidden")
+const heroName = document.querySelector(".hero__only-name")
 const navLinks = document.querySelectorAll(".nav-links")
 const comingSoon = document.querySelectorAll(".coming-soon")
 const navContactLogo = document.querySelectorAll(".nav-contact-logo")
+const decorationBackground = document.querySelector(".decoration-background")
 
 
 menu.addEventListener("click", ()=> {
@@ -22,7 +23,7 @@ menu.addEventListener("click", ()=> {
     overlay.classList.toggle("body-overlay-show")
     setTimeout(() => {
         showNavLogo()
-    }, 1150);
+    }, 1190);
     
 })
 
@@ -44,7 +45,9 @@ inputMoon.addEventListener("click", ()=> {
     inputSun.hidden = false
     body.classList.add("dark")
     switchMode.classList.add("switch-dark")
+    decorationBackground.classList.add("decoration-background-black")
 })
+console.dir(decorationBackground.style.backgroundImage = "")
 
 inputSun.addEventListener("click", ()=> {
     if(inputSun.checked == true)
@@ -52,6 +55,7 @@ inputSun.addEventListener("click", ()=> {
     inputMoon.hidden = false
     body.classList.remove("dark")
     switchMode.classList.remove("switch-dark")
+    decorationBackground.classList.remove("decoration-background-black")
 })
 
 for(const navLink of navLinks) {
@@ -76,6 +80,10 @@ setInterval(() => {
     comingSoonAnimation()
 }, 2500);
 
+/* setInterval(() => {
+    slide()
+}, 1500); */
+
 //Funcion que interviene en el proceso de cambio de tamaño de la letra musical
 /* const re = ()=> {
     musicalLyrics.classList.remove("musical-lyrics-active")
@@ -87,8 +95,8 @@ const showNavLogo = ()=> {
 }
 
 const showHeroName = ()=> {
-    heroName.classList.remove("hero__name-hidden")
-    heroName.classList.add("hero__name")
+    heroName.classList.remove("hero__only-name")
+    heroName.classList.add("hero__only-name-show")
 }
 
 const comingSoonAnimation = ()=> {
@@ -97,4 +105,9 @@ const comingSoonAnimation = ()=> {
         early.nextElementSibling.classList.toggle("overlay-coming-soon-hidden")
     }
 }
-
+/*  let image = 2
+const slide = ()=> {
+    decorationBackground.style.backgroundImage = `url(../assets/images/backgound-image-${image}-editada-black.jpg)`
+    image++
+    console.log(image)
+} */
