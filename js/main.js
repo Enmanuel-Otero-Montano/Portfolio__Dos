@@ -8,7 +8,6 @@ const inputMoon = document.querySelector(".moon")
 const switchMode = document.querySelector(".switch")
 const body = document.querySelector("body")
 const overlay = document.querySelector(".body-overlay")
-const heroName = document.querySelector(".hero__only-name")
 const navLinks = document.querySelectorAll(".nav-links")
 const comingSoon = document.querySelectorAll(".coming-soon")
 const navContactLogo = document.querySelectorAll(".nav-contact-logo")
@@ -21,7 +20,7 @@ menu.addEventListener("click", ()=> {
     hamburger[2].classList.toggle("botton")
     nav.classList.toggle("nav-hidden")
     overlay.classList.toggle("body-overlay-show")
-    setTimeout(() => {
+    setTimeout(() => {// Muestra los logos de contacto en el menú
         showNavLogo()
     }, 1190);
     
@@ -68,12 +67,6 @@ for(const navLink of navLinks) {
     })
 }
 
-document.addEventListener("DOMContentLoaded", ()=> {
-    setTimeout(()=> {
-        showHeroName()
-    }, 900)
-})
-
 /* Functions */
 
 setInterval(() => {
@@ -82,7 +75,7 @@ setInterval(() => {
 
 /* setInterval(() => {
     slide()
-}, 1500); */
+}, 1900); */
 
 //Funcion que interviene en el proceso de cambio de tamaño de la letra musical
 /* const re = ()=> {
@@ -94,20 +87,18 @@ const showNavLogo = ()=> {
     navContactLogo[1].classList.toggle("nav-contact-logo-show")
 }
 
-const showHeroName = ()=> {
-    heroName.classList.remove("hero__only-name")
-    heroName.classList.add("hero__only-name-show")
-}
-
 const comingSoonAnimation = ()=> {
     for(const early of comingSoon) {
         early.classList.toggle("coming-soon-showing")
         early.nextElementSibling.classList.toggle("overlay-coming-soon-hidden")
     }
 }
-/*  let image = 2
+
+ let image = 1
 const slide = ()=> {
-    decorationBackground.style.backgroundImage = `url(../assets/images/backgound-image-${image}-editada-black.jpg)`
+    decorationBackground.style.backgroundImage = `url(../assets/images/backgound-image-1-editada-vertical-${image}.jpg)`
     image++
-    console.log(image)
-} */
+    if(image > 4) {
+        image = 1
+    }
+}
