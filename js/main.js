@@ -11,8 +11,7 @@ const overlay = document.querySelector(".body-overlay")
 const navLinks = document.querySelectorAll(".nav-links")
 const comingSoon = document.querySelectorAll(".coming-soon")
 const navContactLogo = document.querySelectorAll(".nav-contact-logo")
-const decorationBackground = document.querySelector(".decoration-background")
-
+const logo = document.querySelector(".logo-container")
 
 menu.addEventListener("click", ()=> {
     hamburger[0].classList.toggle("top")
@@ -44,9 +43,7 @@ inputMoon.addEventListener("click", ()=> {
     inputSun.hidden = false
     body.classList.add("dark")
     switchMode.classList.add("switch-dark")
-    decorationBackground.classList.add("decoration-background-black")
 })
-console.dir(decorationBackground.style.backgroundImage = "")
 
 inputSun.addEventListener("click", ()=> {
     if(inputSun.checked == true)
@@ -54,7 +51,6 @@ inputSun.addEventListener("click", ()=> {
     inputMoon.hidden = false
     body.classList.remove("dark")
     switchMode.classList.remove("switch-dark")
-    decorationBackground.classList.remove("decoration-background-black")
 })
 
 for(const navLink of navLinks) {
@@ -66,6 +62,10 @@ for(const navLink of navLinks) {
         overlay.classList.remove("body-overlay-show")
     })
 }
+
+logo.addEventListener("click", ()=>{
+    logo.classList.add("logo-container-hidden")
+})
 
 /* Functions */
 
@@ -85,20 +85,12 @@ setInterval(() => {
 const showNavLogo = ()=> {
     navContactLogo[0].classList.toggle("nav-contact-logo-show")
     navContactLogo[1].classList.toggle("nav-contact-logo-show")
+    navContactLogo[2].classList.toggle("nav-contact-logo-show")
 }
 
 const comingSoonAnimation = ()=> {
     for(const early of comingSoon) {
         early.classList.toggle("coming-soon-showing")
         early.nextElementSibling.classList.toggle("overlay-coming-soon-hidden")
-    }
-}
-
- let image = 1
-const slide = ()=> {
-    decorationBackground.style.backgroundImage = `url(../assets/images/backgound-image-1-editada-vertical-${image}.jpg)`
-    image++
-    if(image > 4) {
-        image = 1
     }
 }

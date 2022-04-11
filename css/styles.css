@@ -2,12 +2,13 @@
     --text-color: hsl(243, 74%, 7%);
     --text-color-name: hsl(0, 0%, 0%);
     --letter-spacing: .9px;
-    --bg-header-color: hsl(29, 41%, 85%);
+    --bg-header-color: hsl(29, 41%, 92%);
     --bg-resource-color: hsl(37, 79%, 75%);
     --bg-linear-gradient-one: hsl(37, 79%, 75%);
     --bg-linear-gradient-two: hsl(43, 82%, 94%);
     --headers-text: hsl(219, 18%, 27%);
-    --border-radius: 5px; 
+    --border-radius: 5px;
+    --filter: invert(0%);
 }
 
 * {
@@ -55,20 +56,24 @@ p > span {
     line-height: 1.4;
 }
 
+.font-size {
+    font-size: 0.9rem;
+}
+
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     letter-spacing: var(--letter-spacing);
-    background-color: hsl(30, 51%, 96%);
+    background-color: hsl(30, 51%, 98%);
     transition-property: background-color;
     transition-duration: 700ms;
 }
 
 body.dark {
-    background-color: hsl(243, 74%, 7%);
+    background-color: hsl(243, 74%, 10%);
     --text-color: hsl(0, 0%, 100%);
-    --bg-header-color: hsl(243, 100%, 64%);
+    --bg-header-color: hsl(243, 100%, 68%);
     --bg-resource-color: hsl(203, 39%, 34%);
     --bg-linear-gradient-one: hsl(243, 100%, 64%);
     --bg-linear-gradient-two: hsl(203, 39%, 34%);
@@ -76,12 +81,14 @@ body.dark {
     --text-color-name: hsl(0, 0%, 100%);
     transition-property: background-color;
     transition-duration: 700ms;
+    --filter: invert(100%);
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     width: 100%;
     height: 52px;
     padding-left: 18px;
@@ -90,7 +97,8 @@ body.dark {
     background-color: var(--bg-header-color);
     transition-property: background-color;
     transition-duration: 700ms;
-    box-shadow: 0px 4px 5px hsl(243, 74%, 7%);
+    box-shadow: 0 4px 5px hsl(0, 0%, 0%);
+    z-index: 5;
 }
 
 /* Estilos para el menu */
@@ -105,7 +113,7 @@ body.dark {
 
 .hamburger-menu {
     width: 32px;
-    height: 5px;
+    height: 4px;
     margin-top: 2px;
     margin-bottom: 2px;
     background-color: hsl(0, 0%, 0%);
@@ -122,14 +130,12 @@ body.dark {
 
 .middle {
     position: absolute;
-    transform: translateX(-55px);
-    transition-property: transform;
-    transition-duration: 300ms;
+    opacity: 0;
 }
 
 .botton {
     position: relative;
-    top: -4px;
+    top: -3px;
     transform: rotate(-45deg);
     transition-property: top, transform;
     transition-duration: 900ms;
@@ -258,7 +264,8 @@ body.dark {
 .nav-list {
     position: relative;
     margin: 0;
-    padding: 15px 40px;
+    padding: 12px 30px 10px 18px;
+    border-bottom: solid 1px black;
 }
 
 .nav-list > li {
@@ -266,11 +273,25 @@ body.dark {
     margin-bottom: 30px;
 }
 
+.nav-links {
+    font-weight: 500;
+}
+
+.nav-title {
+    margin-top: 25px;
+    padding-left: 18px;
+    font-weight: 500;
+}
+
+.graduation-degree {
+    width: max-content;
+}
+
 .nav-contact {
     display: flex;
     justify-content: space-between;
     position: relative;
-    top: 250px;
+    top: 200px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -293,20 +314,39 @@ body.dark {
     position: relative;
     height: 96vh;
     padding: 50px 18px 0;
+    /* background-image: url(../assets/images/background-mobile-light-1.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%; */
 }
 
 .logo-container {
     position: absolute;
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     top: 0px;
-    left: 11px;
+    left: 14px;
     padding: 9px 5px 3px;
     background-color: hsl(0, 0%, 100%);
     border-left: solid 1px hsl(0, 0%, 0%);
     border-bottom: solid 1px hsl(0, 0%, 0%);
     border-right: solid 1px hsl(0, 0%, 0%);
-    z-index: -1;
+}
+
+.logo-container-hidden {
+    animation-name: logo-hidden;
+    animation-duration: 800ms;
+    animation-timing-function: cubic-bezier(0.55, 0.40, 0.25, 0.10);
+    animation-fill-mode: forwards;
+}
+
+@keyframes logo-hidden {
+    from {
+        transform: translateY(3px);
+    }
+    to {
+        transform: translateY(-45px);
+    }
 }
 
 .hero {
@@ -327,34 +367,13 @@ body.dark {
     color: var(--text-color-name);
 }
 
-.decoration-background {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(../assets/images/backgound-image-1-editada-vertical-1.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    opacity: .8;
-    /* -webkit-clip-path: polygon(100% 0, 100% 0%, 100% 100%, 0 100%);
-    clip-path: polygon(100% 0, 100% 0%, 100% 100%, 0 100%); */
-    z-index: -5;
-}
-
-.decoration-background-black {
-    background-image: url(../assets/images/backgound-image-1-editada-black-vertical-1.jpg);
-}
-
 .arrow-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     right: 10px;
-    bottom: 16px;
+    bottom: 25px;
     width: 25px;
     height: 40px;
 }
@@ -420,6 +439,22 @@ body.dark {
     padding-right: 18px;
 }
 
+.avatar-container {
+    width: 140px;
+    height: 140px;
+    margin-left: 12px;
+    margin-bottom: 6px;
+    border-radius: 50%;
+    float: right;
+}
+
+.avatar {
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: right;
+}
+
 /* Estilos para la section "projects" */
 
 .section-projects {
@@ -445,16 +480,32 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 60%;
-    margin: 15px auto;
+    width: 72%;
+    margin: 20px auto;
     border-radius: var(--border-radius);
 }
 
 .project-links {
-    padding: 10px;
-    background: linear-gradient(0.37turn, var(--bg-linear-gradient-one), var(--bg-linear-gradient-two), var(--bg-linear-gradient-one));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 108px;
+    height: 46px;
+    padding: 8px;
     border-radius: var(--border-radius);
-    box-shadow: 0px 0px 8px hsl(243, 74%, 7%);
+    box-shadow: 0px 1px 5px hsl(243, 74%, 7%);
+    border: solid 1px white;
+}
+
+.project-links-icon-play {
+    width: 34px;
+    filter: var(--filter)
+}
+
+.project-links-icon-github {
+    width: 24px;
+    padding-bottom: 5px;
+    filter: var(--filter)
 }
 
 /* Estilos para la section "knowledge" */
@@ -534,7 +585,7 @@ img {
     position: absolute;
     left: 55%;
     width: 1px;
-    height: 105px;
+    height: 110px;
     background-color: black;
 }
 
@@ -570,6 +621,12 @@ img {
         cursor: pointer;
     }
 
+    .logo-container:hover {
+        cursor: pointer;
+        background-color: hsl(0, 3%, 95%);
+        border: none;
+    }
+
     .nav-links:hover,
     .footer__right-container-nav:hover {
         text-decoration-line: underline;
@@ -581,26 +638,6 @@ img {
     .section-hero {
         height: 91vh;
     }
-
-    /* .decoration-background {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url(../assets/images/backgound-image-1-editada.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        opacity: .5;
-        -webkit-clip-path: polygon(100% 0, 100% 0%, 100% 100%, 0 100%);
-        clip-path: polygon(100% 0, 100% 0%, 100% 100%, 0 100%);
-        z-index: -1;
-    }
-
-    .decoration-background-black {
-        background-image: url(../assets/images/backgound-image-1-editada-black.jpg);
-    } */
 
     .container-presentation-image {
         width: 60%;
@@ -644,6 +681,7 @@ img {
         justify-content: space-between;
         width: 100%;
         padding: 0;
+        border: none;
     }
 
     .nav-list > li {
@@ -654,6 +692,10 @@ img {
         font-size: 1rem;
     }
 
+    .nav-title {
+        display: none;
+    }
+
     .nav-contact {
         display: none;
     }
@@ -662,6 +704,10 @@ img {
         height: 91vh;
         padding-left: 25px;
         padding-right: 25px;
+    }
+
+    .logo-container {
+        left: calc(100% - 70px);
     }
 
     .hero {
@@ -729,6 +775,10 @@ img {
 
     .nav-links {
         font-size: 1.2rem;
+    }
+
+    .logo-container {
+        left: calc(100% - 125px);
     }
 
     .hero {
