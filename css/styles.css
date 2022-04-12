@@ -1,14 +1,20 @@
 :root {
     --text-color: hsl(243, 74%, 7%);
     --text-color-name: hsl(0, 0%, 0%);
+    --third-color-mode-dark: hsl(0, 0%, 0%);
     --letter-spacing: .9px;
     --bg-header-color: hsl(29, 41%, 92%);
     --bg-resource-color: hsl(37, 79%, 75%);
-    --bg-linear-gradient-one: hsl(37, 79%, 75%);
-    --bg-linear-gradient-two: hsl(43, 82%, 94%);
+    --bg-information: hsl(39, 77%, 85%);
     --headers-text: hsl(219, 18%, 27%);
+    --information-border-left: hsl(39, 77%, 53%);
     --border-radius: 5px;
     --filter: invert(0%);
+}
+
+.nav-contact-1024,
+.nat-title-1024 {/* Contenido del menú cuando la pantalla es el igual o mayor a 1024px */
+    display: none;
 }
 
 * {
@@ -71,14 +77,15 @@ body {
 }
 
 body.dark {
-    background-color: hsl(243, 74%, 10%);
+    background-color: hsl(0, 0%, 7%);
+    --third-color-mode-dark: hsl(54, 100%, 55%);
     --text-color: hsl(0, 0%, 100%);
-    --bg-header-color: hsl(243, 100%, 68%);
+    --bg-header-color: hsl(0, 0%, 22%);
     --bg-resource-color: hsl(203, 39%, 34%);
-    --bg-linear-gradient-one: hsl(243, 100%, 64%);
-    --bg-linear-gradient-two: hsl(203, 39%, 34%);
+    --bg-information: hsl(0, 0%, 35%);
     --headers-text: hsl(0, 0%, 100%);
     --text-color-name: hsl(0, 0%, 100%);
+    --information-border-left: hsl(54, 100%, 55%);
     transition-property: background-color;
     transition-duration: 700ms;
     --filter: invert(100%);
@@ -97,7 +104,7 @@ body.dark {
     background-color: var(--bg-header-color);
     transition-property: background-color;
     transition-duration: 700ms;
-    box-shadow: 0 4px 5px hsl(0, 0%, 0%);
+    box-shadow: 0 3px 8px 1px var(--text-color-name);
     z-index: 5;
 }
 
@@ -116,7 +123,7 @@ body.dark {
     height: 4px;
     margin-top: 2px;
     margin-bottom: 2px;
-    background-color: hsl(0, 0%, 0%);
+    background-color: var(--third-color-mode-dark);
     border-radius: 5px;
 }
 
@@ -188,13 +195,8 @@ body.dark {
     width: 34px;
     height: 16px;
     position: relative;
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--third-color-mode-dark);
     border-radius: 12px;
-    border: solid .5px hsla(243, 74%, 7%, .5);
-}
-
-.switch-dark {
-    background-color: hsl(243, 74%, 7%);
 }
 
 .input-radio {
@@ -299,25 +301,16 @@ body.dark {
     padding-right: 13px;
 }
 
-.nav-contact-logo {
-    width: 20px;
-    opacity: 0;
-}
-
-.nav-contact-logo-show {
-    opacity: 1;
+.nav-contact-icon {
+    filter: var(--filter)
 }
 
 /* Estilos para "section-hero" */
 
 .section-hero {
     position: relative;
-    height: 96vh;
+    height: 95vh;
     padding: 50px 18px 0;
-    /* background-image: url(../assets/images/background-mobile-light-1.webp);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%; */
 }
 
 .logo-container {
@@ -326,7 +319,7 @@ body.dark {
     height: 42px;
     top: 0px;
     left: 14px;
-    padding: 9px 5px 3px;
+    padding: 8px 5px 4px;
     background-color: hsl(0, 0%, 100%);
     border-left: solid 1px hsl(0, 0%, 0%);
     border-bottom: solid 1px hsl(0, 0%, 0%);
@@ -352,7 +345,7 @@ body.dark {
 .hero {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 70px;
+    margin-top: 60px;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5;
@@ -364,7 +357,32 @@ body.dark {
 }
 
 .hero__name {
-    color: var(--text-color-name);
+    color: var(--third-color-mode-dark);
+}
+
+.section-hero__text-container {
+    padding: 8px 12px 16px 20px;
+    background-color: var(--bg-information);
+    border-radius: var(--border-radius);
+    border-left: solid 4px var(--information-border-left);
+}
+
+.section-hero__text {
+    margin: 0;
+    font-size: .8rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.section-hero__text-icon {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 22px;
+}
+
+.section-hero__text-icon-dark {
+    filter: contrast(0%) sepia(1) hue-rotate(20deg) saturate(4000%);
 }
 
 .arrow-container {
@@ -373,7 +391,7 @@ body.dark {
     align-items: center;
     position: absolute;
     right: 10px;
-    bottom: 25px;
+    bottom: 30px;
     width: 25px;
     height: 40px;
 }
@@ -469,7 +487,8 @@ img {
 
 .container-presentation-image {
     border-radius: var(--border-radius);
-    outline: solid 1px hsl(160, 11%, 52%);
+    border: solid 1px var(--text-color);
+    box-shadow: 0px 1px 5px var(--text-color-name)
 }
 
 .container-presentation-image > img {
@@ -480,8 +499,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 72%;
-    margin: 20px auto;
+    width: 75%;
+    margin: 30px auto 22px;
     border-radius: var(--border-radius);
 }
 
@@ -493,8 +512,8 @@ img {
     height: 46px;
     padding: 8px;
     border-radius: var(--border-radius);
-    box-shadow: 0px 1px 5px hsl(243, 74%, 7%);
-    border: solid 1px white;
+    box-shadow: 0px 1px 7px var(--text-color-name);
+    border: solid 1px var(--text-color-name);
 }
 
 .project-links-icon-play {
@@ -586,7 +605,7 @@ img {
     left: 55%;
     width: 1px;
     height: 110px;
-    background-color: black;
+    background-color: var(--text-color-name);
 }
 
 .footer__right-container-nav {
@@ -607,17 +626,16 @@ img {
     padding-left: 0;
 }
 
-.ways-of-contact {
-    width: 20px;
-}
-
 @media (hover: hover) {
 
     .nav-links:hover,
     .input-radio:hover,
     .project-links:hover,
     .ways-of-contact:hover,
-    .nav-contact-logo:hover {
+    .nav-contact-logo:hover,
+    .header__menu-container:hover,
+    .nav-contact-1024:hover,
+    .nav-title-1024:hover {
         cursor: pointer;
     }
 
@@ -628,7 +646,8 @@ img {
     }
 
     .nav-links:hover,
-    .footer__right-container-nav:hover {
+    .footer__right-container-nav:hover,
+    .nav-title-1024:hover {
         text-decoration-line: underline;
     }
 }
@@ -663,14 +682,95 @@ img {
         padding-right: 25px;
     }
 
-    .header__menu-container {
+    /* .header__menu-container {
         display: none;
+    } */
+
+    .header__menu-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        left: 55%;
+        width: 32px;
+        height: 16px;
+    }
+    
+    .hamburger-menu {
+        width: 7px;
+        height: 7px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        background-color: var(--third-color-mode-dark);
+        border-radius: 5px;
+    }
+    
+    /* .top {
+        position: relative;
+        top: 5px;
+        transform: rotate(45deg);
+        transition-property: top, transform;
+        transition-duration: 900ms;
+    }
+    
+    .middle {
+        position: absolute;
+        opacity: 0;
+    }
+    
+    .botton {
+        position: relative;
+        top: -3px;
+        transform: rotate(-45deg);
+        transition-property: top, transform;
+        transition-duration: 900ms;
+    } */
+
+    .body-overlay {
+        position: absolute;
+        top: 50px;
+        left: 55%;
+        transform: scale(0);
+        width: 0px;
+        height: 0px;
+        background-color: var(--bg-header-color);
+        box-shadow: 0 6px 6px var(--text-color-name);
+        z-index: 5;
+    }
+    
+    .body-overlay-show {
+        transform: initial;
+        width: 200px;
+        height: 130px;
+        transition-property: transform, width, height;
+        transition-duration: 400ms, 250ms, 200ms;
+        transition-delay: 0ms, 50ms, 100ms;
+    }
+
+    .nav-contact-1024 {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: max-content;
+        bottom: 10px;
+    }
+
+    .nav-title-1024 {
+        display: inline-block;
+        width: 100%;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 30px;
     }
 
     .nav-hidden {
         position: initial;
         top: initial;
-        width: 50%;
+        width: 52%;
         height: initial;
         background-color: inherit;
         z-index: initial;

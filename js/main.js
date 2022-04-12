@@ -10,19 +10,19 @@ const body = document.querySelector("body")
 const overlay = document.querySelector(".body-overlay")
 const navLinks = document.querySelectorAll(".nav-links")
 const comingSoon = document.querySelectorAll(".coming-soon")
-const navContactLogo = document.querySelectorAll(".nav-contact-logo")
 const logo = document.querySelector(".logo-container")
+const sectionHeroTextIcon = document.querySelectorAll(".section-hero__text-icon")
 
 menu.addEventListener("click", ()=> {
-    hamburger[0].classList.toggle("top")
-    hamburger[1].classList.toggle("middle")
-    hamburger[2].classList.toggle("botton")
-    nav.classList.toggle("nav-hidden")
-    overlay.classList.toggle("body-overlay-show")
-    setTimeout(() => {// Muestra los logos de contacto en el menú
-        showNavLogo()
-    }, 1190);
-    
+    if(window.matchMedia("(min-width: 1024px)").matches){
+        overlay.classList.toggle("body-overlay-show")
+    }else{
+        hamburger[0].classList.toggle("top")
+        hamburger[1].classList.toggle("middle")
+        hamburger[2].classList.toggle("botton")
+        nav.classList.toggle("nav-hidden")
+        overlay.classList.toggle("body-overlay-show")
+    }
 })
 
 /* onOff.addEventListener("click", ()=> {
@@ -42,7 +42,9 @@ inputMoon.addEventListener("click", ()=> {
     inputMoon.hidden = true
     inputSun.hidden = false
     body.classList.add("dark")
-    switchMode.classList.add("switch-dark")
+    for(const icon of sectionHeroTextIcon){
+        icon.classList.add("section-hero__text-icon-dark")
+    }
 })
 
 inputSun.addEventListener("click", ()=> {
@@ -50,7 +52,9 @@ inputSun.addEventListener("click", ()=> {
     inputSun.hidden = true
     inputMoon.hidden = false
     body.classList.remove("dark")
-    switchMode.classList.remove("switch-dark")
+    for(const icon of sectionHeroTextIcon){
+        icon.classList.remove("section-hero__text-icon-dark")
+    }
 })
 
 for(const navLink of navLinks) {
@@ -81,12 +85,6 @@ setInterval(() => {
 /* const re = ()=> {
     musicalLyrics.classList.remove("musical-lyrics-active")
 } */
-
-const showNavLogo = ()=> {
-    navContactLogo[0].classList.toggle("nav-contact-logo-show")
-    navContactLogo[1].classList.toggle("nav-contact-logo-show")
-    navContactLogo[2].classList.toggle("nav-contact-logo-show")
-}
 
 const comingSoonAnimation = ()=> {
     for(const early of comingSoon) {
