@@ -46,10 +46,6 @@ a {
     color: var(--text-color);
 }
 
-p > span {
-    background-color: var(--bg-resource-color);
-}
-
 .text-color {
     color: var(--text-color);
 }
@@ -147,36 +143,6 @@ body.dark {
     transition-property: top, transform;
     transition-duration: 900ms;
 }
-
-/* Estilos para la musica */
-
-/* .header__music-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 54px;
-}
-
-.musical-lyrics {
-    width: 20px;
-    height: 20px;
-}
-
-.musical-lyrics-active {
-    width: 18.5px;
-    height: 18.5px;
-    transition-property: width, height;
-    transition-duration: 100ms;
-}
-
-.musical-lyrics-dark {
-    filter: invert(100%);
-}
-
-.on-off {
-    color: var(--text-color);
-    text-transform: capitalize;
-} */
 
 /* Estilos para el modo */
 
@@ -309,7 +275,7 @@ body.dark {
 
 .section-hero {
     position: relative;
-    height: 95vh;
+    height: 93vh;
     padding: 50px 18px 0;
 }
 
@@ -343,9 +309,7 @@ body.dark {
 }
 
 .hero {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 60px;
+    margin: 60px auto 12px;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5;
@@ -361,6 +325,7 @@ body.dark {
 }
 
 .section-hero__text-container {
+    width: 320px;
     padding: 8px 12px 16px 20px;
     background-color: var(--bg-information);
     border-radius: var(--border-radius);
@@ -381,7 +346,7 @@ body.dark {
     width: 22px;
 }
 
-.section-hero__text-icon-dark {
+.yellow-icon-dark {
     filter: contrast(0%) sepia(1) hue-rotate(20deg) saturate(4000%);
 }
 
@@ -585,45 +550,51 @@ img {
 
 .footer {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     position: relative;
-    padding: 13px;
-    font-size: .7rem;
+    padding: 25px 18px 15px;
     background-color: var(--bg-header-color);
 }
 
-.right-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.right-container::before {
-    content: "";
-    position: absolute;
-    left: 55%;
-    width: 1px;
-    height: 110px;
-    background-color: var(--text-color-name);
-}
-
-.footer__right-container-nav {
-    margin-bottom: 15px;
+.footer__data {
+    padding-bottom: 15px;
 }
 
 .footer__name {
     margin-top: 0;
-    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 110px;
+    margin-bottom: 26px;
 }
 
 .footer__list-socials {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    width: 100%;
-    margin: 45px auto 5px 0;
+    width: 45%;
     padding-left: 0;
+}
+
+.created-by {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2px;
+    font-size: .7rem;
+    text-align: center;
+}
+
+.created-by__icon {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 17px;
 }
 
 @media (hover: hover) {
@@ -667,9 +638,17 @@ img {
     .project-links-container {
         width: 45%;
     }
+
+    .footer__list-socials {
+        width: 28%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
+
+    .font-size {
+        font-size: 1rem;
+    }
 
     h2 {
         margin-top: 50px;
@@ -678,13 +657,9 @@ img {
 
     .header {
         height: 70px;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
-
-    /* .header__menu-container {
-        display: none;
-    } */
 
     .header__menu-container {
         display: flex;
@@ -705,27 +680,6 @@ img {
         background-color: var(--third-color-mode-dark);
         border-radius: 5px;
     }
-    
-    /* .top {
-        position: relative;
-        top: 5px;
-        transform: rotate(45deg);
-        transition-property: top, transform;
-        transition-duration: 900ms;
-    }
-    
-    .middle {
-        position: absolute;
-        opacity: 0;
-    }
-    
-    .botton {
-        position: relative;
-        top: -3px;
-        transform: rotate(-45deg);
-        transition-property: top, transform;
-        transition-duration: 900ms;
-    } */
 
     .body-overlay {
         position: absolute;
@@ -802,8 +756,8 @@ img {
 
     .section-hero {
         height: 91vh;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
     .logo-container {
@@ -819,8 +773,37 @@ img {
         left: -220px;
     }
 
+    .section-hero__text-container {
+        width: 440px;
+    }
+
+    .section-hero__text {
+        font-size: 1rem;
+    }
+
     .arrow-container {
         display: none;
+    }
+
+/* Estilos para la section "about-me" */
+
+    .section-about-me {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .avatar-container {
+        width: 190px;
+        height: 190px;
+        margin-left: 20px;
+        margin-bottom: 6px;
+        border-radius: 50%;
+        float: right;
+    }
+
+    .avatar {
+        height: 100%;
+        border-radius: 50%;
     }
 
     .section-projects {
@@ -841,33 +824,48 @@ img {
         line-height: 1.6;
     }
 
+    /* Estilos para el footer */
+
     .footer {
-        padding-left: 25px;
-        padding-right: 25px;
+        flex-direction: row;
+        height: 220px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
-    .footer__list {
+    .footer-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 110px;
+        margin-bottom: 26px;
+    }
+
+    .footer__list-socials {
+        align-items: center;
+        height: max-content;
         width: 25%;
+        margin-top: 0;
     }
 
-    .footer__name,
-    .footer__location,
-    .right-container {
-        font-size: 1.1rem;
+    .created-by {
+        position: absolute;
+        left: 40%;
+        bottom: 12px;
+        font-size: .8rem;
     }
-
-    .right-container::before {
-        height: 120px;
-    }
-
-    .ways-of-contact {
-        width: 30px;
+    
+    .created-by__icon {
+        width: 18px;
     }
 }
 
 @media screen and (min-width: 1366px) {
 
     .header,
+    .section-hero,
+    .section-about-me,
+    .section-projects,
     .footer {
         padding-left: 80px;
         padding-right: 80px;
@@ -882,8 +880,7 @@ img {
     }
 
     .hero {
-        font-size: 2.3rem;
-        padding-left: 60px;
+        font-size: 2.1rem;
     }
 
     .hero__only-name {
@@ -894,10 +891,10 @@ img {
         display: none;
     }
 
-    section > p {
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
+    /* Estilos para el "section-projects" */
+
+    .section-projects > p {
+        text-align: center;
     }
 
     .container-presentation-image {
