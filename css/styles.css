@@ -62,6 +62,12 @@ a {
     font-size: 0.9rem;
 }
 
+.paragraph {
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -73,7 +79,7 @@ body {
 }
 
 body.dark {
-    background-color: hsl(0, 0%, 7%);
+    background-color: hsl(0, 0%, 12%);
     --third-color-mode-dark: hsl(54, 100%, 55%);
     --text-color: hsl(0, 0%, 100%);
     --bg-header-color: hsl(0, 0%, 22%);
@@ -175,7 +181,7 @@ body.dark {
 
 .sun {
     left: -2px;
-    background-image: url(../assets/images/sol-redimensionada.jpg);
+    background-image: url(../assets/images/sol-redimensionada-1.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -183,7 +189,7 @@ body.dark {
 
 .moon {
     left: 14px;
-    background-image: url(../assets/images/luna-2-redimensionada.jpg);
+    background-image: url(../assets/images/luna-2-redimensionada-1.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -451,20 +457,35 @@ img {
 }
 
 .container-presentation-image {
+    display: flex;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: var(--border-radius);
     border: solid 1px var(--text-color);
-    box-shadow: 0px 1px 5px var(--text-color-name)
+    box-shadow: 0px 1px 5px var(--text-color-name);
+    overflow: hidden;
 }
 
 .container-presentation-image > img {
     border-radius: var(--border-radius);
 }
 
+.project-images-slide-first {
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.project-images-slide-second {
+    transform: translateX(-200%);
+    transition: all 1s;
+}
+
 .project-links-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 75%;
+    width: min(72%, 360px);
     margin: 30px auto 22px;
     border-radius: var(--border-radius);
 }
@@ -497,6 +518,9 @@ img {
 .section-knowledge__images-container {
     display: grid;
     grid-template-columns: 50% 50%;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-knowledge__images-subcontainer {
@@ -510,6 +534,12 @@ img {
 
 .knowledge-image {
     width: 85px;
+}
+
+.technology-name {
+    font-weight: 500;
+    text-align: center;
+    color: var(--text-color);
 }
 
 .coming-soon {
@@ -552,9 +582,11 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     position: relative;
     padding: 25px 18px 15px;
     background-color: var(--bg-header-color);
+    text-align: center;
 }
 
 .footer__data {
@@ -616,6 +648,11 @@ img {
         border: none;
     }
 
+    .nav-contact-icon:hover {
+        fill: hsl(0, 0%, 100%);
+        background-color: hsl(0, 0%, 0%);
+    }
+
     .nav-links:hover,
     .footer__right-container-nav:hover,
     .nav-title-1024:hover {
@@ -623,20 +660,22 @@ img {
     }
 }
 
+@media screen and (max-width: 350px) {
+
+    .section-hero__text-container {
+        width: 300px;
+        padding: 8px 12px 16px 20px;
+    }
+
+    .project-links {
+        width: 105px;
+    }
+}
+
 @media screen and (min-width: 768px) {
 
     .section-hero {
         height: 91vh;
-    }
-
-    .container-presentation-image {
-        width: 60%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .project-links-container {
-        width: 45%;
     }
 
     .footer__list-socials {
@@ -811,6 +850,10 @@ img {
         padding-right: 50px;
     }
 
+    .container-presentation-image {
+        max-width: 500px;
+    }
+
     .project-names {
         font-size: 1.5rem;
     }
@@ -828,9 +871,11 @@ img {
 
     .footer {
         flex-direction: row;
+        align-items: initial;
         height: 220px;
         padding-left: 40px;
         padding-right: 40px;
+        text-align: initial;
     }
 
     .footer-nav {
@@ -839,6 +884,7 @@ img {
         justify-content: space-between;
         height: 110px;
         margin-bottom: 26px;
+        text-align: center;
     }
 
     .footer__list-socials {
@@ -893,19 +939,19 @@ img {
 
     /* Estilos para el "section-projects" */
 
-    .section-projects > p {
-        text-align: center;
-    }
-
-    .container-presentation-image {
-        width: 50%;
-    }
-
-    .project-links-container {
-        width: 35%;
+    .section-projects > .paragraph {
+        margin-bottom: 50px;
+        font-weight: 500;
     }
 
     .right-container::before {
         left: 50%;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+
+    .container-presentation-image {
+        max-width: 600px;
     }
 }
