@@ -10,6 +10,8 @@ const navLinks = document.querySelectorAll(".nav-links")
 const comingSoon = document.querySelectorAll(".coming-soon")
 const logo = document.querySelector(".logo-container")
 const yellowIcon = document.querySelectorAll(".yellow-icon")
+const projectImages = document.querySelectorAll(".project-images")
+const projectImagesContainer = document.querySelector(".container-presentation-image")
 
 menu.addEventListener("click", ()=> {
     if(window.matchMedia("(min-width: 1024px)").matches){
@@ -61,11 +63,35 @@ logo.addEventListener("click", ()=>{
 
 setInterval(() => {
     comingSoonAnimation()
-}, 2500);
+    projectImagesSlide()
+    console.log(counterImage)
+}, 3000);
 
 const comingSoonAnimation = ()=> {
     for(const early of comingSoon) {
         early.classList.toggle("coming-soon-showing")
         early.nextElementSibling.classList.toggle("overlay-coming-soon-hidden")
+    }
+}
+
+const projectImagesArray = Array.from(projectImages)
+
+const numberOfImages = {
+    class: "project-images-slide-first",
+}
+
+let counterImage = 0
+
+const projectImagesSlide = ()=> {
+    counterImage = ++counterImage
+    if(counterImage === 1) {
+        numberOfImages.class = "project-images-slide-first"
+        projectImagesArray.forEach(element => element.classList.add(`${numberOfImages.class}`))
+    }else if(counterImage === 2) {
+        numberOfImages.class = "project-images-slide-second"
+        projectImagesArray.forEach(element => element.classList.add(`${numberOfImages.class}`))
+    }else if (counterImage > 2) {
+        counterImage = 0
+        projectImagesArray.forEach(element => element.classList.remove("project-images-slide-first", "project-images-slide-second"))
     }
 }
