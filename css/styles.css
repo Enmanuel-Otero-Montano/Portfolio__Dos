@@ -678,6 +678,10 @@ img {
         height: 91vh;
     }
 
+    .avatar-container {
+        display: none;
+    }
+
     .footer__list-socials {
         width: 28%;
     }
@@ -794,20 +798,6 @@ img {
     .section-about-me {
         padding-left: 40px;
         padding-right: 40px;
-    }
-
-    .avatar-container {
-        width: 190px;
-        height: 190px;
-        margin-left: 20px;
-        margin-bottom: 6px;
-        border-radius: 50%;
-        float: right;
-    }
-
-    .avatar {
-        height: 100%;
-        border-radius: 50%;
     }
 
     .section-projects {
