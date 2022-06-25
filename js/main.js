@@ -3,7 +3,6 @@ const hamburger = document.querySelectorAll(".hamburger-menu")
 const nav = document.querySelector(".nav")
 const inputSun = document.querySelector(".sun")
 const inputMoon = document.querySelector(".moon")
-const switchMode = document.querySelector(".switch")
 const body = document.querySelector("body")
 const overlay = document.querySelector(".body-overlay")
 const navLinks = document.querySelectorAll(".nav-links")
@@ -11,7 +10,6 @@ const comingSoon = document.querySelectorAll(".coming-soon")
 const logo = document.querySelector(".logo-container")
 const yellowIcon = document.querySelectorAll(".yellow-icon")
 const projectImages = document.querySelectorAll(".project-images")
-const projectImagesContainer = document.querySelector(".container-presentation-image")
 
 menu.addEventListener("click", ()=> {
     if(window.matchMedia("(min-width: 1024px)").matches){
