@@ -83,63 +83,27 @@ const projects = {
     2: 0
 }
 
-for(const left of buttonLeftArray){
-    left.addEventListener("click", ()=>{
-        let index = buttonLeftArray.indexOf(left)
-        projects.index = ++projects[index]
-        if(projects[index] === 1 ){
-            numberOfImages.class = "left-images-slide-first"
-            if(left.parentElement.previousElementSibling.children[0].classList.contains("right-images-slide-second")){
-                left.parentElement.previousElementSibling.children[0].classList.remove("right-images-slide-second")
-                left.parentElement.previousElementSibling.children[1].classList.remove("right-images-slide-second")
-                left.parentElement.previousElementSibling.children[2].classList.remove("right-images-slide-second")
-            }else{
-                left.parentElement.previousElementSibling.children[0].classList.add(`${numberOfImages.class}`)
-                left.parentElement.previousElementSibling.children[1].classList.add(`${numberOfImages.class}`)
-                left.parentElement.previousElementSibling.children[2].classList.add(`${numberOfImages.class}`)
-            }
-        }else if(projects[index] === 2){
-            numberOfImages.class = "left-images-slide-second"
-            if(left.parentElement.previousElementSibling.children[0].classList.contains("right-images-slide-first")){
-                left.parentElement.previousElementSibling.children[0].classList.replace("right-images-slide-first", `${numberOfImages.class}`)
-                left.parentElement.previousElementSibling.children[1].classList.replace("right-images-slide-first", `${numberOfImages.class}`)
-                left.parentElement.previousElementSibling.children[2].classList.replace("right-images-slide-first", `${numberOfImages.class}`)
-            }else{
-                left.parentElement.previousElementSibling.children[0].classList.add(`${numberOfImages.class}`)
-                left.parentElement.previousElementSibling.children[1].classList.add(`${numberOfImages.class}`)
-                left.parentElement.previousElementSibling.children[2].classList.add(`${numberOfImages.class}`)
-            }
-            left.nextElementSibling.classList.remove("btn-disabled-opacity")
-            left.nextElementSibling.disabled = false
-            left.classList.add("btn-disabled-opacity")
-            left.disabled = true
-        }
-    })
-}
-
-const buttonRightArray = Array.from(buttonRight)
-
 for(const right of buttonRight){
     right.addEventListener("click", ()=>{
         let index = buttonRightArray.indexOf(right)
-        projects.index = --projects[index]
-        if(projects[index] === 1){
-            numberOfImages.class = "right-images-slide-first"
-            if(right.parentElement.previousElementSibling.children[0].classList.contains("left-images-slide-second")){
-                right.parentElement.previousElementSibling.children[0].classList.replace("left-images-slide-second", `${numberOfImages.class}`)
-                right.parentElement.previousElementSibling.children[1].classList.replace("left-images-slide-second", `${numberOfImages.class}`)
-                right.parentElement.previousElementSibling.children[2].classList.replace("left-images-slide-second", `${numberOfImages.class}`) 
+        projects.index = ++projects[index]
+        if(projects[index] === 1 ){
+            numberOfImages.class = "left-images-slide-first"
+            if(right.parentElement.previousElementSibling.children[0].classList.contains("right-images-slide-second")){
+                right.parentElement.previousElementSibling.children[0].classList.remove("right-images-slide-second")
+                right.parentElement.previousElementSibling.children[1].classList.remove("right-images-slide-second")
+                right.parentElement.previousElementSibling.children[2].classList.remove("right-images-slide-second")
             }else{
                 right.parentElement.previousElementSibling.children[0].classList.add(`${numberOfImages.class}`)
                 right.parentElement.previousElementSibling.children[1].classList.add(`${numberOfImages.class}`)
                 right.parentElement.previousElementSibling.children[2].classList.add(`${numberOfImages.class}`)
             }
-        }else if(projects[index] === 0){
-            numberOfImages.class = "right-images-slide-second"
-            if(right.parentElement.previousElementSibling.children[0].classList.contains("left-images-slide-first")){
-                right.parentElement.previousElementSibling.children[0].classList.replace("left-images-slide-first", `${numberOfImages.class}`)
-                right.parentElement.previousElementSibling.children[1].classList.replace("left-images-slide-first", `${numberOfImages.class}`)
-                right.parentElement.previousElementSibling.children[2].classList.replace("left-images-slide-first", `${numberOfImages.class}`)
+        }else if(projects[index] === 2){
+            numberOfImages.class = "left-images-slide-second"
+            if(right.parentElement.previousElementSibling.children[0].classList.contains("right-images-slide-first")){
+                right.parentElement.previousElementSibling.children[0].classList.replace("right-images-slide-first", `${numberOfImages.class}`)
+                right.parentElement.previousElementSibling.children[1].classList.replace("right-images-slide-first", `${numberOfImages.class}`)
+                right.parentElement.previousElementSibling.children[2].classList.replace("right-images-slide-first", `${numberOfImages.class}`)
             }else{
                 right.parentElement.previousElementSibling.children[0].classList.add(`${numberOfImages.class}`)
                 right.parentElement.previousElementSibling.children[1].classList.add(`${numberOfImages.class}`)
@@ -147,8 +111,44 @@ for(const right of buttonRight){
             }
             right.previousElementSibling.classList.remove("btn-disabled-opacity")
             right.previousElementSibling.disabled = false
-            right.disabled = true
             right.classList.add("btn-disabled-opacity")
+            right.disabled = true
+        }
+    })
+}
+
+const buttonRightArray = Array.from(buttonRight)
+
+for(const left of buttonLeft){
+    left.addEventListener("click", ()=>{
+        let index = buttonLeftArray.indexOf(left)
+        projects.index = --projects[index]
+        if(projects[index] === 1){
+            numberOfImages.class = "right-images-slide-first"
+            if(left.parentElement.previousElementSibling.children[0].classList.contains("left-images-slide-second")){
+                left.parentElement.previousElementSibling.children[0].classList.replace("left-images-slide-second", `${numberOfImages.class}`)
+                left.parentElement.previousElementSibling.children[1].classList.replace("left-images-slide-second", `${numberOfImages.class}`)
+                left.parentElement.previousElementSibling.children[2].classList.replace("left-images-slide-second", `${numberOfImages.class}`) 
+            }else{
+                left.parentElement.previousElementSibling.children[0].classList.add(`${numberOfImages.class}`)
+                left.parentElement.previousElementSibling.children[1].classList.add(`${numberOfImages.class}`)
+                left.parentElement.previousElementSibling.children[2].classList.add(`${numberOfImages.class}`)
+            }
+        }else if(projects[index] === 0){
+            numberOfImages.class = "right-images-slide-second"
+            if(left.parentElement.previousElementSibling.children[0].classList.contains("left-images-slide-first")){
+                left.parentElement.previousElementSibling.children[0].classList.replace("left-images-slide-first", `${numberOfImages.class}`)
+                left.parentElement.previousElementSibling.children[1].classList.replace("left-images-slide-first", `${numberOfImages.class}`)
+                left.parentElement.previousElementSibling.children[2].classList.replace("left-images-slide-first", `${numberOfImages.class}`)
+            }else{
+                left.parentElement.previousElementSibling.children[0].classList.add(`${numberOfImages.class}`)
+                left.parentElement.previousElementSibling.children[1].classList.add(`${numberOfImages.class}`)
+                left.parentElement.previousElementSibling.children[2].classList.add(`${numberOfImages.class}`)
+            }
+            left.nextElementSibling.classList.remove("btn-disabled-opacity")
+            left.nextElementSibling.disabled = false
+            left.disabled = true
+            left.classList.add("btn-disabled-opacity")
         }
     })
 }

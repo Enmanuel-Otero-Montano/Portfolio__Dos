@@ -252,10 +252,6 @@ body.dark {
     font-weight: 500;
 }
 
-.graduation-degree {
-    width: max-content;
-}
-
 .list-socials {
     display: flex;
     justify-content: space-between;
@@ -270,10 +266,6 @@ body.dark {
 
 .nav-contact-icon {
     filter: var(--filter)
-}
-
-.github {
-    margin-bottom: 3px;
 }
 
 /* Estilos para "section-hero" */
@@ -361,7 +353,7 @@ body.dark {
     align-items: center;
     position: absolute;
     right: 10px;
-    bottom: 30px;
+    bottom: 35px;
     width: 25px;
     height: 40px;
 }
@@ -483,9 +475,14 @@ img {
     justify-content: center;
     padding: 0;
     background-color: transparent;
-    border: solid 1px hsl(0, 0%, 12%);
+    border: solid 1px var(--text-color-name);
     box-shadow: 0px 0px 4px var(--text-color-name);
     border-radius: 50%;
+}
+
+.btn-left > svg,
+.btn-right > svg {
+    filter: var(--filter);
 }
 
 .btn-right {
@@ -539,13 +536,13 @@ img {
 
 .project-links-icon-play {
     width: 34px;
-    filter: var(--filter)
+    filter: var(--filter);
 }
 
 .project-links-icon-github {
     width: 24px;
     padding-bottom: 5px;
-    filter: var(--filter)
+    filter: var(--filter);
 }
 
 /* Estilos para la section "knowledge" */
@@ -647,6 +644,12 @@ img {
     align-items: flex-end;
     width: 45%;
     padding-left: 0;
+}
+
+.contact-me {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .created-by {
